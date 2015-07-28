@@ -1,6 +1,4 @@
-# linux_box_name = 'opscode_centos-5.9_chef-11.4.4'
-# linux_box_name = 'opscode-fedora-20'
-linux_box_name = 'opscode_ubuntu-12.04_chef-11.2.0'
+linux_box_name = 'opscode-centos-6.6'
 linux_box_url  = "https://opscode-vm.s3.amazonaws.com/vagrant/#{linux_box_name}.box"
 windows_box_name = 'vagrant-windows2008r2'
 windows_box_url = "http://PUTINYOURBOXSERVERHERE/vagrant/boxes/#{windows_box_name}.box"
@@ -9,6 +7,7 @@ api_version = '2'
 Vagrant::configure(api_version) do |config|
   config.berkshelf.enabled    = true
   config.omnibus.chef_version = :latest
+  config.vm.network "private_network", type: "dhcp"
   
   if Vagrant.has_plugin?("vagrant-cachier")
       # Configure cached packages to be shared between instances of the same base box.
