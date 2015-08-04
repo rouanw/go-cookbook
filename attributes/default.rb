@@ -1,4 +1,4 @@
-default['go']['backup_path'] = '/vagrant/backups'
+default['go']['backup_path'] = ''
 default['go']['backup_retrieval_type'] = 'local'
 
 default['go']['agent']['auto_register']         = false
@@ -13,7 +13,7 @@ default['go']['agent']['server_search_query'] =
   "chef_environment:#{node.chef_environment} AND recipes:go\\:\\:server"
 
 
-default['go']['version']                       = '15.1.0-1863'
+default['go']['version']                       = '15.2.0-2248'
 default['java']['jdk_version'] = '7'
 
 unless platform?('windows')
