@@ -1,4 +1,4 @@
-linux_box_name = 'opscode-centos-6.6'
+linux_box_name = 'centos7'
 linux_box_url  = "https://opscode-vm.s3.amazonaws.com/vagrant/#{linux_box_name}.box"
 windows_box_name = 'vagrant-windows2008r2'
 windows_box_url = "http://PUTINYOURBOXSERVERHERE/vagrant/boxes/#{windows_box_name}.box"
@@ -8,7 +8,7 @@ Vagrant::configure(api_version) do |config|
   config.berkshelf.enabled    = true
   config.omnibus.chef_version = :latest
   config.vm.network "private_network", type: "dhcp"
-  
+
   if Vagrant.has_plugin?("vagrant-cachier")
       # Configure cached packages to be shared between instances of the same base box.
       # More info on http://fgrehm.viewdocs.io/vagrant-cachier/usage
@@ -27,7 +27,7 @@ Vagrant::configure(api_version) do |config|
       }
       # For more information please check http://docs.vagrantup.com/v2/synced-folders/basic_usage.html
   end
-  
+
   config.vm.define 'linux', primary: true do |linux|
     linux.vm.box               = linux_box_name
     linux.vm.box_url           = linux_box_url
@@ -87,5 +87,3 @@ Vagrant::configure(api_version) do |config|
   # end
 
 end
-
-  
