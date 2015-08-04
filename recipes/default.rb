@@ -4,10 +4,10 @@ case node['platform']
 when 'windows'
   include_recipe "go::agent_windows"
 else
-  include_recipe "go::build_dependencies"
   node.default['go']['server'] = '127.0.0.1'
   include_recipe "go::server"
   include_recipe "go::agent_linux"
+  include_recipe "go::build_dependencies"
 end
 
 Chef::Log.info("Node has #{node['cpu']['total']} CPUs")
